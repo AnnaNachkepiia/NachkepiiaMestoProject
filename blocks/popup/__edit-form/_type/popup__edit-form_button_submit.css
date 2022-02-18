@@ -1,0 +1,23 @@
+.popup__edit-form_button_submit {
+    height: 50px;
+    background: #000000;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.2;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 48px auto 37px;
+}
+.popup__edit-form_button_submit:hover{
+    opacity: 0.8;
+}
+@media screen and (max-width: 767px) {
+    .popup__edit-form_button_submit {
+        margin: 45px auto 25px;
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="page">
+    <div class="page__container">
+        <header class="header">
+            <img class="header__logo" src="images/logo.svg" alt="Логотип Mesto Russia">
+            <div class="header__line"></div>
+        </header>
+
+        <main>
+            <section class="profile">
+                <img class="profile__avatar" src="images/Kusto.jpg" alt="Аватар">
+                <div class="profile__info">
+                    <h1 class="profile__title">Жак-Ив Кусто</h1>
+                    <button type="button" class="profile__edit-button"></button>
+                    <p class="profile__subtitle">Исследователь океана</p>
+                </div>
+                <button type="button" class="profile__add-button">
+                </button>
+
+            </section>
+
+            <section>
+                <ul class="places">
+                    <li class="place">
+                        <img class="place__image" src="images/Karachaevsk.jpg" alt="Карачаевск">
+                        <div class="place__description">
+                            <h3 class="place__title">Карачаевск</h3>
+                            <button type="button" class="place__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="place">
+                        <img class="place__image" src="images/Elbrus.jpg" alt="Гора Эльбрус">
+                        <div class="place__description">
+                            <h3 class="place__title">Гора Эльбрус</h3>
+                            <button type="button" class="place__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="place">
+                        <img class="place__image" src="images/Dombai.jpg" alt="Домбай">
+                        <div class="place__description">
+                            <h3 class="place__title">Домбай</h3>
+                            <button type="button" class="place__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="place">
+                        <img class="place__image" src="images/volgaRiver.jpg" alt="Река Волга">
+                        <div class="place__description">
+                            <h3 class="place__title">Река Волга</h3>
+                            <button type="button" class="place__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="place">
+                        <img class="place__image" src="images/ivanovo.jpg" alt="Иваново">
+                        <div class="place__description">
+                            <h3 class="place__title">Иваново</h3>
+                            <button type="button" class="place__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="place">
+                        <img class="place__image" src="images/moscowcity.jpg" alt="Москва-city">
+                        <div class="place__description">
+                            <h3 class="place__title">Москва</h3>
+                            <button type="button" class="place__like-button"></button>
+                        </div>
+                    </li>
+                </ul>
+
+            </section>
+        </main>
+
+        <footer class="footer">
+            <h3 class="footer__copyrite">&copy; 2022 Mesto Russia</h3>
+        </footer>
+
+        <section class="popup">
+            <div class="popup__container">
+                <button type="button" class="popup__close">
+                </button>
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <form class="popup__edit-container">
+                    <input type="text" name="Имя" placeholder="Введите имя"
+                        class="popup__edit-form popup__edit-form_type_name">
+                    <input type="text" name="О себе" placeholder="Введите описание"
+                        class="popup__edit-form popup__edit-form_type_about">
+                    <button type="submit" class="popup__edit-form popup__edit-form_button_submit">Сохранить</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>
