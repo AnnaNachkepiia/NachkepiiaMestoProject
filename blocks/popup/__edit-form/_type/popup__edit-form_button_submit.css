@@ -13,9 +13,11 @@
     cursor: pointer;
     margin: 48px auto 37px;
 }
-.popup__edit-form_button_submit:hover{
+
+.popup__edit-form_button_submit:hover {
     opacity: 0.8;
 }
+
 @media screen and (max-width: 767px) {
     .popup__edit-form_button_submit {
         margin: 45px auto 25px;
