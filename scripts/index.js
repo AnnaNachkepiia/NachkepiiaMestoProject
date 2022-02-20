@@ -20,6 +20,8 @@ jobInput.value = profileSubtitle.textContent;
 
 const openPopup = function () {
     popupElement.classList.add('popup_is-opened');
+    nameInput.value = profileTitle.textContent;
+    jobInput.value = profileSubtitle.textContent;
 }
 
 const closePopup = function () {

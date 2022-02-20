@@ -1,5 +1,15 @@
 .header__logo {
-    max-width: 142px;
+    width: 142px;
+    height: 33px;
+    background-image: url(../../../images/logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+}
+
+.header__logo:hover {
+    opacity: 0.5;
 }
 
 @media screen and (max-width: 900px) {
@@ -11,5 +21,6 @@
 @media screen and (max-width: 767px) {
     .header__logo {
         width: 103.7px;
+        height: 24.4px;
     }
 }
