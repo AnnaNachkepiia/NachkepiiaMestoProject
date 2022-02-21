@@ -18,7 +18,7 @@ jobInput.value = profileSubtitle.textContent;
 
 // Фунцкии
 
-const openPopup = function () {
+function openPopup () {
     popupElement.classList.add('popup_is-opened');
     nameInput.value = profileTitle.textContent;
     jobInput.value = profileSubtitle.textContent;
@@ -29,7 +29,6 @@ const closePopup = function () {
 }
 
 const closePopupOverlay = function (event) {
-    console.log(event.target, event.currentTarget);
     if (event.target !== event.currentTarget) {
         return;
     }
