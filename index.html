@@ -36,6 +36,7 @@
                             <h2 class="place__title">Карачаевск</h2>
                             <button type="button" class="place__like-button"></button>
                         </div>
+                        <button type="button" class="place__delete-button"></button>
                     </li>
                     <li class="place">
                         <img class="place__image" src="images/Elbrus.jpg" alt="Гора Эльбрус">
@@ -43,6 +44,7 @@
                             <h2 class="place__title">Гора Эльбрус</h2>
                             <button type="button" class="place__like-button"></button>
                         </div>
+                        <button type="button" class="place__delete-button"></button>
                     </li>
                     <li class="place">
                         <img class="place__image" src="images/Dombai.jpg" alt="Домбай">
@@ -50,6 +52,7 @@
                             <h2 class="place__title">Домбай</h2>
                             <button type="button" class="place__like-button"></button>
                         </div>
+                        <button type="button" class="place__delete-button"></button>
                     </li>
                     <li class="place">
                         <img class="place__image" src="images/volgaRiver.jpg" alt="Река Волга">
@@ -57,6 +60,7 @@
                             <h2 class="place__title">Река Волга</h2>
                             <button type="button" class="place__like-button"></button>
                         </div>
+                        <button type="button" class="place__delete-button"></button>
                     </li>
                     <li class="place">
                         <img class="place__image" src="images/ivanovo.jpg" alt="Иваново">
@@ -64,6 +68,7 @@
                             <h2 class="place__title">Иваново</h2>
                             <button type="button" class="place__like-button"></button>
                         </div>
+                        <button type="button" class="place__delete-button"></button>
                     </li>
                     <li class="place">
                         <img class="place__image" src="images/moscowcity.jpg" alt="Москва-city">
@@ -71,6 +76,7 @@
                             <h2 class="place__title">Москва</h2>
                             <button type="button" class="place__like-button"></button>
                         </div>
+                        <button type="button" class="place__delete-button"></button>
                     </li>
                 </ul>
 
@@ -81,7 +87,7 @@
             <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
 
-        <div class="popup">
+        <div class="popup popup_type_edit">
             <div class="popup__container">
                 <button type="button" class="popup__close">
                 </button>
@@ -94,9 +100,33 @@
                     <button type="submit" class="popup__edit-form popup__edit-form_button_submit">Сохранить</button>
                 </form>
             </div>
-        </div>
-    </div>
-    <script src="./scripts/index.js"></script>
+
+            <div class="popup popup_type_add-card">
+                <div class="popup__container">
+                    <button type="button" class="popup__close">
+                    </button>
+                    <h2 class="popup__title">Новое место</h2>
+                    <form name="popup-edit-form" class="popup__edit-container">
+                        <input type="text" name="Name" placeholder="Название"
+                            class="popup__edit-form popup__edit-form_type_card-name">
+                        <input type="text" name="Link" placeholder="Ссылка на картинку"
+                            class="popup__edit-form popup__edit-form_type_link">
+                        <button type="submit" class="popup__edit-form popup__edit-form_button_create">Создать</button>
+                    </form>
+                </div>
+
+                <div class="popup popup_type_open-image">
+                    <div class="popup__picture-container">
+                        <button type="button" class="popup__close">
+                        </button>
+                        <figure class="popup__picture">
+                            <img class="popup__fulled-img" src="images/Karachaevsk.jpg" alt="Карачаевск">
+                            <figcaption class="popup__picture-title">Карачаево-Черкессия</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <script src="./scripts/index.js"></script>
 </body>
 
 </html>
