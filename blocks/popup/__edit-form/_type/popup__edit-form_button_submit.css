@@ -12,6 +12,7 @@
     color: #FFFFFF;
     cursor: pointer;
     margin: 48px auto 37px;
+    padding: 0;
 }
 
 .popup__edit-form_button_submit:hover {
