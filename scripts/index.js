@@ -15,13 +15,15 @@ const nameInput = popupFormElement.querySelector('.popup__edit-form_type_name');
 const jobInput = popupFormElement.querySelector('.popup__edit-form_type_about');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
+const popupPicture = document.querySelector('.popup__picture');
+const popupOpenPicture = document.querySelector('.popup__fulled-img');
+
 
 const listCards = document.querySelector('.places');
 
 
 
 const placeDescription = document.querySelector('.place__description');
-const placeDeleteButtonElement = document.querySelector('.place__delete-button');
 
 
 nameInput.value = profileTitle.textContent;
@@ -85,7 +87,7 @@ function openPopupImg() {
 
 function closePopupImg() {
     popupImgElement.classList.remove('popup_is-opened');
-} 
+}
 
 
 const closePopupOverlay = function (event) {
@@ -118,11 +120,22 @@ function renderCard(cardImg, cardName) {
     placeImageElement.src = cardImg;
     placeImageElement.alt = cardName;
     placeTitle.textContent = cardName;
-    // document.querySelector('.popup__picture-title') = cardName;
 
-    placeCard.querySelector('.place__like-button').addEventListener('click', function(event){
-        event.target.classList.toggle('place__like-button_active');
+    placeCard.querySelector('.place__like-button').addEventListener('click', function (evt) {
+        evt.target.classList.toggle('place__like-button_active');
     });
+
+    placeCard.querySelector('.place__delete-button').addEventListener('click', function (evt) {
+        placeCard.remove();
+    })
+
+    placeImageElement.addEventListener('click', function (evt) {
+        openPopupImg(popupPicture);
+        popupOpenPicture.src = cardImg;
+        popupOpenPicture.alt = cardName;
+        popupPicture.querySelector('.popup__picture-title').textContent = cardName;
+
+    })
 
     listCards.prepend(placeCard);
 
