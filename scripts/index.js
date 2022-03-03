@@ -162,7 +162,6 @@ initialCards.forEach(function (item) {
 });
 
 
-// const cardCreateHandler = 
 
 // Обработчики событий
 popupOpenButtonElement.addEventListener('click', openPopupEdit);
@@ -172,7 +171,7 @@ popupAddCloseButtonElement.addEventListener('click', closeAddPopup);
 popupImgCloseButtonElement.addEventListener('click', closePopupImg);
 popupEditElement.addEventListener('click', closePopupOverlay);
 popupFormElement.addEventListener('submit', formSubmitHandler);
-popupAddFormElement.addEventListener('submit', function(evt) {
+popupAddFormElement.addEventListener('submit', function (evt) {
     evt.preventDefault();
     addCard(cardLinkInput.value, cardNameInput.value);
     closeAddPopup();
