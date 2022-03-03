@@ -10,9 +10,12 @@ const popupAddCloseButtonElement = document.querySelector('.popup__close_add');
 const popupImgCloseButtonElement = document.querySelector('.popup__close_img');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 const popupSubmitButtonElement = popupEditElement.querySelector('.popup__edit-form_button_submit');
-const popupFormElement = popupEditElement.querySelector('.popup__edit-container');
+const popupFormElement = popupEditElement.querySelector('.popup__form-container_type_edit');
+const popupAddFormElement = popupAddElement.querySelector('.popup__form-container_type_add');
 const nameInput = popupFormElement.querySelector('.popup__edit-form_type_name');
 const jobInput = popupFormElement.querySelector('.popup__edit-form_type_about');
+const cardNameInput = popupAddElement.querySelector('.popup__edit-form_type_card-name');
+const cardLinkInput = popupAddElement.querySelector('.popup__edit-form_type_link');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const popupPicture = document.querySelector('.popup__picture');
@@ -96,7 +99,6 @@ const closePopupOverlay = function (event) {
     }
     closeEditPopup();
     closeAddPopup();
-    closePopupImg();
 }
 
 
@@ -107,6 +109,8 @@ const formSubmitHandler = function (evt) {
     closeEditPopup();
     closeAddPopup();
 }
+
+
 
 
 
@@ -127,7 +131,7 @@ function renderCard(cardImg, cardName) {
 
     placeCard.querySelector('.place__delete-button').addEventListener('click', function (evt) {
         placeCard.remove();
-    })
+    });
 
     placeImageElement.addEventListener('click', function (evt) {
         openPopupImg(popupPicture);
@@ -135,13 +139,14 @@ function renderCard(cardImg, cardName) {
         popupOpenPicture.alt = cardName;
         popupPicture.querySelector('.popup__picture-title').textContent = cardName;
 
-    })
+    });
+
 
     listCards.prepend(placeCard);
 
 
     return placeCard;
-}
+};
 
 // функция добавления карточки из массива
 function addCard(cardImg, cardName) {
@@ -157,6 +162,7 @@ initialCards.forEach(function (item) {
 });
 
 
+// const cardCreateHandler = 
 
 // Обработчики событий
 popupOpenButtonElement.addEventListener('click', openPopupEdit);
@@ -166,5 +172,10 @@ popupAddCloseButtonElement.addEventListener('click', closeAddPopup);
 popupImgCloseButtonElement.addEventListener('click', closePopupImg);
 popupEditElement.addEventListener('click', closePopupOverlay);
 popupFormElement.addEventListener('submit', formSubmitHandler);
+popupAddFormElement.addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    addCard(cardLinkInput.value, cardNameInput.value);
+    closeAddPopup();
+});
 popupAddElement.addEventListener('click', closePopupOverlay);
 
