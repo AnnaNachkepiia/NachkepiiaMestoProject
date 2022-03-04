@@ -44,10 +44,12 @@ const placeDescription = document.querySelector(".place__description");
 
 function openPopup(popup) {
   popup.classList.add("popup_is-opened");
+  document.addEventListener('keydown', closeByEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_is-opened");
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 function openPopupEdit() {
@@ -86,7 +88,8 @@ const closePopupOverlay = function (event) {
 const closeByEscape = function (event) {
     // let key = event.key;
     if (event.key === "Escape") {
-        closePopup(event.target);
+        let popupIsOpened = document.querySelector('.popup_is-opened');
+        closePopup(popupIsOpened);
     }
 }
 
@@ -164,4 +167,4 @@ popupAddFormElement.addEventListener("submit", handleFormAddCreate);
 popupEditElement.addEventListener("click", closePopupOverlay);
 popupAddElement.addEventListener("click", closePopupOverlay);
 popupImgElement.addEventListener("click", closePopupOverlay);
-popupEditElement.addEventListener("keydown", closeByEscape);
+// popupEditElement.addEventListener("keydown", closeByEscape);
