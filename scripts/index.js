@@ -44,12 +44,12 @@ const placeDescription = document.querySelector(".place__description");
 
 function openPopup(popup) {
   popup.classList.add("popup_is-opened");
-  document.addEventListener('keydown', closeByEscape);
+  document.addEventListener("keydown", closeByEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_is-opened");
-  document.removeEventListener('keydown', closeByEscape);
+  document.removeEventListener("keydown", closeByEscape);
 }
 
 function openPopupEdit() {
@@ -86,19 +86,18 @@ const closePopupOverlay = function (event) {
 };
 
 const closeByEscape = function (event) {
-    // let key = event.key;
-    if (event.key === "Escape") {
-        let popupIsOpened = document.querySelector('.popup_is-opened');
-        closePopup(popupIsOpened);
-    }
-}
+  // let key = event.key;
+  if (event.key === "Escape") {
+    const popupIsOpened = document.querySelector(".popup_is-opened");
+    closePopup(popupIsOpened);
+  }
+};
 
 const handleFormEditSubmit = function (evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
 
-  closePopup(popupAddElement);
   closePopup(popupEditElement);
 };
 
@@ -167,4 +166,3 @@ popupAddFormElement.addEventListener("submit", handleFormAddCreate);
 popupEditElement.addEventListener("click", closePopupOverlay);
 popupAddElement.addEventListener("click", closePopupOverlay);
 popupImgElement.addEventListener("click", closePopupOverlay);
-// popupEditElement.addEventListener("keydown", closeByEscape);
