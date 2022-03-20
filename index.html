@@ -44,12 +44,14 @@
                 <button type="button" class="popup__close popup__close_edit">
                 </button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="popup-edit-form" class="popup__form-container popup__form-container_type_edit">
-                    <input type="text" name="Name" placeholder="Введите имя"
-                        class="popup__edit-form popup__edit-form_type_name">
-                    <input type="text" name="About" placeholder="Введите описание"
-                        class="popup__edit-form popup__edit-form_type_about">
-                    <button type="submit" class="popup__edit-form popup__edit-form_button_submit">Сохранить</button>
+                <form name="popup-edit-form" class="popup__form-container popup__form-container_type_edit" novalidate>
+                    <input type="text" name="Name" placeholder="Введите имя" class="popup__edit-form popup__edit-form_type_name">
+
+                    <span class="popup__form-error popup_form-error_active">Вы пропустили это поле.</span>
+
+                    <input type="text" name="About" placeholder="Введите описание" class="popup__edit-form popup__edit-form_type_about">
+                    <span class="popup_form-error">Вы пропустили это поле.</span>
+                    <button type="submit" class="popup__submit popup__submit_type_save">Сохранить</button>
                 </form>
             </div>
         </div>
@@ -58,12 +60,12 @@
                 <button type="button" class="popup__close popup__close_add">
                 </button>
                 <h2 class="popup__title">Новое место</h2>
-                <form name="popup-edit-form" class="popup__form-container popup__form-container_type_add">
-                    <input type="text" name="Name" placeholder="Название"
-                        class="popup__edit-form popup__edit-form_type_card-name">
-                    <input type="text" name="Link" placeholder="Ссылка на картинку"
-                        class="popup__edit-form popup__edit-form_type_link">
-                    <button type="submit" class="popup__edit-form popup__edit-form_button_create">Создать</button>
+                <form name="popup-edit-form" class="popup__form-container popup__form-container_type_add" novalidate>
+                    <input type="text" name="Name" placeholder="Название" class="popup__edit-form popup__edit-form_type_card-name">
+                    <span class="popup_form-error">Вы пропустили это поле.</span>
+                    <input type="text" name="Link" placeholder="Ссылка на картинку" class="popup__edit-form popup__edit-form_type_link">
+                    <span class="popup_form-error">Введите адрес сайта.</span>
+                    <button type="submit" class="popup__submit popup__submit_type_create">Создать</button>
                 </form>
             </div>
         </div>
@@ -88,6 +90,7 @@
                 <button type="button" class="place__delete-button"></button>
             </li>
         </template>
+        <script src="./scripts/validate.js"></script>
         <script src="./scripts/utils/cards.js"></script>
         <script src="./scripts/index.js"></script>
     </div>
