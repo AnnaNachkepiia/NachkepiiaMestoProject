@@ -16,7 +16,6 @@ const openErrorMessage = (formElement, inputElement, errorMessage, object) => {
 
 const hideErrorMessage = (formElement, inputElement, object) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-
     inputElement.classList.remove(object.errorClass);
     errorElement.textContent = '';
     errorElement.classList.remove(object.errorClassActive);
