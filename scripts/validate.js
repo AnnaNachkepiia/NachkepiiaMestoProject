@@ -2,9 +2,9 @@ const formObj = {
     formSelector: '.popup__form-container',
     inputSelector: '.popup__edit-form',
     submitButtonSelector: '.popup__submit',
-    submitButtonDisabled: 'popup__submit-disabled',
-    errorClass: 'popup_edit-form-error',
-    errorClassActive: 'popup__edit-form-error_active'
+    submitButtonDisabledClass: 'popup__submit-disabled',
+    errorClass: 'popup_edit-form_type_error',
+    errorClassActive: 'popup__text-error_active'
 }
 
 const openErrorMessage = (formElement, inputElement, errorMessage, object) => {
@@ -38,10 +38,10 @@ const hasInvalidInput = (inputs) => {
 
 const toggleButtonState = (inputs, buttonElement, object) => {
     if (hasInvalidInput(inputs)) {
-        buttonElement.classList.add(object.submitButtonDisabled);
+        buttonElement.classList.add(object.submitButtonDisabledClass);
         buttonElement.setAttribute('disabled', true);
     } else {
-        buttonElement.classList.remove(object.submitButtonDisabled);
+        buttonElement.classList.remove(object.submitButtonDisabledClass);
         buttonElement.removeAttribute('disabled');
     }
 }
