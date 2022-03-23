@@ -43,7 +43,6 @@ const placeDescription = document.querySelector(".place__description");
 // Функции
 
 function openPopup(popup) {
-<<<<<<< HEAD
     popup.classList.add("popup_is-opened");
     document.addEventListener("keydown", closeByEscape);
 }
@@ -51,15 +50,7 @@ function openPopup(popup) {
 function closePopup(popup) {
     popup.classList.remove("popup_is-opened");
     document.removeEventListener("keydown", closeByEscape);
-=======
-  popup.classList.add("popup_is-opened");
-  document.addEventListener("keydown", closeByEscape);
-}
 
-function closePopup(popup) {
-  popup.classList.remove("popup_is-opened");
-  document.removeEventListener("keydown", closeByEscape);
->>>>>>> a23e5cc4a1d154e5842085e74268d67806e9a752
 }
 
 function openPopupEdit() {
@@ -95,21 +86,12 @@ const closePopupOverlay = function(event) {
     closePopup(event.target);
 };
 
-<<<<<<< HEAD
 const closeByEscape = function(event) {
     // let key = event.key;
     if (event.key === "Escape") {
         let popupIsOpened = document.querySelector(".popup_is-opened");
         closePopup(popupIsOpened);
     }
-=======
-const closeByEscape = function (event) {
-  // let key = event.key;
-  if (event.key === "Escape") {
-    const popupIsOpened = document.querySelector(".popup_is-opened");
-    closePopup(popupIsOpened);
-  }
->>>>>>> a23e5cc4a1d154e5842085e74268d67806e9a752
 };
 
 const handleFormEditSubmit = function(evt) {
@@ -117,12 +99,9 @@ const handleFormEditSubmit = function(evt) {
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
 
-<<<<<<< HEAD
     closePopup(popupAddElement);
     closePopup(popupEditElement);
-=======
-  closePopup(popupEditElement);
->>>>>>> a23e5cc4a1d154e5842085e74268d67806e9a752
+
 };
 
 // функция добавления новой карточки
@@ -189,8 +168,8 @@ popupFormElement.addEventListener("submit", handleFormEditSubmit);
 popupAddFormElement.addEventListener("submit", handleFormAddCreate);
 popupEditElement.addEventListener("click", closePopupOverlay);
 popupAddElement.addEventListener("click", closePopupOverlay);
-<<<<<<< HEAD
 popupImgElement.addEventListener("click", closePopupOverlay);
-=======
+popupAddFormElement.addEventListener("submit", handleFormAddCreate);
+popupEditElement.addEventListener("click", closePopupOverlay);
+popupAddElement.addEventListener("click", closePopupOverlay);
 popupImgElement.addEventListener("click", closePopupOverlay);
->>>>>>> a23e5cc4a1d154e5842085e74268d67806e9a752
