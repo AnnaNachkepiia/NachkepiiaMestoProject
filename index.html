@@ -45,12 +45,12 @@
                 </button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="popup-edit-form" class="popup__form-container popup__form-container_type_edit" novalidate>
-                    <input type="text" name="Name" id="profile-name" placeholder="Введите имя" class="popup__edit-form popup__edit-form_type_name" required minlength="2">
+                    <input type="text" name="Name" id="profile-name" class="popup__edit-form popup__edit-form_type_name" placeholder="Введите имя" minlength="2" maxlength="30" required>
 
-                    <span class="popup__form-error" id="profile-name-error"></span>
+                    <span class="popup__edit-form-error" id="profile-name-error"></span>
 
-                    <input type="text" name="About" id="about" placeholder="Введите описание" class="popup__edit-form popup__edit-form_type_about" required minlength="2">
-                    <span class="popup_form-error" id="about-error"></span>
+                    <input type="text" name="About" id="about" class="popup__edit-form popup__edit-form_type_about" placeholder="Введите описание" required minlength="2" maxlength="200" required>
+                    <span class="popup__edit-form-error" id="about-error"></span>
                     <button type="submit" class="popup__submit popup__submit_type_save">Сохранить</button>
                 </form>
             </div>
@@ -61,10 +61,10 @@
                 </button>
                 <h2 class="popup__title">Новое место</h2>
                 <form name="popup-edit-form" class="popup__form-container popup__form-container_type_add" novalidate>
-                    <input type="text" name="Name" id="card-name" placeholder="Название" class="popup__edit-form popup__edit-form_type_card-name" required minlength="2">
-                    <span class="popup_form-error" id="card-name-error"></span>
-                    <input type="text" name="Link" id="link" placeholder="Ссылка на картинку" class="popup__edit-form popup__edit-form_type_link" required minlength="6">
-                    <span class="popup_form-error" id="link-error"></span>
+                    <input type="text" name="Name" id="card-name" placeholder="Название" class="popup__edit-form popup__edit-form_type_card-name" minlength="2" maxlength="30" required>
+                    <span class="popup__edit-form-error" id="card-name-error"></span>
+                    <input type="url" name="Link" id="link" placeholder="Ссылка на картинку" class="popup__edit-form popup__edit-form_type_link" minlength="6" maxlength="200" required>
+                    <span class="popup__edit-form-error" id="link-error"></span>
                     <button type="submit" class="popup__submit popup__submit_type_create">Создать</button>
                 </form>
             </div>

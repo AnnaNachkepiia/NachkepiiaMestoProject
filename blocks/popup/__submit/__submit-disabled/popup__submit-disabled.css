@@ -6,3 +6,8 @@
     box-sizing: border-box;
     border-radius: 2px;
 }
+
+.popup__submit-disabled:hover {
+    opacity: 0.2;
+    cursor: default;
+}
