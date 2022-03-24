@@ -13,6 +13,8 @@ const popupOpenButtonElement = document.querySelector(".profile__edit-button");
 const popupSubmitButtonElement = popupEditElement.querySelector(
     ".popup__submit_type_save"
 );
+const popupSubmitButtonAdd = popupAddElement.querySelector('.popup__submit_type_create');
+
 const popupFormElement = popupEditElement.querySelector(
     ".popup__form-container_type_edit"
 );
@@ -89,7 +91,7 @@ const closePopupOverlay = function(event) {
 const closeByEscape = function(event) {
     // let key = event.key;
     if (event.key === "Escape") {
-        let popupIsOpened = document.querySelector(".popup_is-opened");
+        const popupIsOpened = document.querySelector(".popup_is-opened");
         closePopup(popupIsOpened);
     }
 };
@@ -99,7 +101,6 @@ const handleFormEditSubmit = function(evt) {
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
 
-    closePopup(popupAddElement);
     closePopup(popupEditElement);
 
 };
@@ -138,6 +139,7 @@ function renderCard(cardImg, cardName) {
     return placeCard;
 }
 
+
 // функция добавления карточки из массива
 function addCard(cardImg, cardName) {
     listCards.prepend(renderCard(cardImg, cardName));
@@ -152,10 +154,11 @@ initialCards.forEach(function(item) {
 const handleFormAddCreate = (evt) => {
     evt.preventDefault();
     addCard(cardLinkInput.value, cardNameInput.value);
-    closeAddPopup();
-
     cardLinkInput.value = "";
     cardNameInput.value = "";
+    closeAddPopup();
+    popupSubmitButtonAdd.classList.add('popup__submit-disabled');
+    popupSubmitButtonAdd.setAttribute('disabled', true);
 };
 
 // Обработчики событий
