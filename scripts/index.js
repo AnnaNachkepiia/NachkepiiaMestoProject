@@ -157,8 +157,7 @@ const handleFormAddCreate = (evt) => {
     cardLinkInput.value = "";
     cardNameInput.value = "";
     closeAddPopup();
-    popupSubmitButtonAdd.classList.add('popup__submit-disabled');
-    popupSubmitButtonAdd.setAttribute('disabled', true);
+    disableSubmitButton(popupSubmitButtonAdd, formObj);
 };
 
 // Обработчики событий
