@@ -10,7 +10,7 @@ export class Card {
     }
 
     _handleLikeIcon = () => {
-        evt.target.classList.toggle("place__like-button_active")
+        this._likeButton.classList.toggle("place__like-button_active")
     }
 
     _deleteCard = () => {
