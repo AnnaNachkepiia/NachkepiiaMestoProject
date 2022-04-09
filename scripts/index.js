@@ -112,6 +112,8 @@ function openPopupAdd() {
 }
 
 function closeAddPopup() {
+    popupAddFormElement.reset();
+    addCardValidator.disableSubmitButton();
     closePopup(popupAddElement);
 }
 
@@ -154,6 +156,7 @@ const handleImageClick = (cardName, cardImg) => {
 };
 
 const renderCard = (data) => {
+
         const placeCard = new Card(data, '#cardTemplate', handleImageClick);
         const newCard = placeCard.generateCard()
         return newCard;
@@ -172,11 +175,11 @@ initialCards.forEach((data) => {
 // функция submit
 const handleFormAddCreate = (evt) => {
     evt.preventDefault();
-    addCard(cardLinkInput.value, cardNameInput.value);
-    cardLinkInput.value = "";
-    cardNameInput.value = "";
+    addCard({
+        name: cardNameInput.value,
+        link: cardLinkInput.value,
+    });
     closeAddPopup();
-    disableSubmitButton(popupSubmitButtonAdd, formObj);
 };
 
 // Обработчики событий

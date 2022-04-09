@@ -15,6 +15,7 @@ export class Card {
 
     _deleteCard = () => {
         this._placeCard.remove();
+        this._placeCard = null;
     }
 
     _setEventListeners() {
@@ -35,9 +36,10 @@ export class Card {
         this._placeImageElement = this._placeCard.querySelector(".place__image");
         this._placeTitle = this._placeCard.querySelector(".place__title");
 
+        this._placeTitle.textContent = this._name;
         this._placeImageElement.src = this._link;
         this._placeImageElement.alt = this._name;
-        this._placeTitle.textContent = this._name;
+
 
         this._likeButton = this._placeCard.querySelector(".place__like-button");
         this._deleteButton = this._placeCard.querySelector(".place__delete-button");
