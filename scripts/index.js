@@ -36,16 +36,16 @@ addCardValidator.enableValidation();
 
 // Функции
 
-function openPopup(popup) {
-    popup.classList.add("popup_is-opened");
-    document.addEventListener("keydown", closeByEscape);
-}
+// function openPopup(popup) {
+//     popup.classList.add("popup_is-opened");
+//     document.addEventListener("keydown", closeByEscape);
+// }
 
-function closePopup(popup) {
-    popup.classList.remove("popup_is-opened");
-    document.removeEventListener("keydown", closeByEscape);
+// function closePopup(popup) {
+//     popup.classList.remove("popup_is-opened");
+//     document.removeEventListener("keydown", closeByEscape);
 
-}
+// }
 
 function openPopupEdit() {
     nameInput.value = profileTitle.textContent;
@@ -75,19 +75,19 @@ function closePopupImg() {
     closePopup(popupImgElement);
 }
 
-const closePopupOverlay = function(event) {
-    if (event.target !== event.currentTarget) {
-        return;
-    }
-    closePopup(event.target);
-};
+// const closePopupOverlay = function(event) {
+//     if (event.target !== event.currentTarget) {
+//         return;
+//     }
+//     closePopup(event.target);
+// };
 
-const closeByEscape = function(event) {
-    if (event.key === "Escape") {
-        const popupIsOpened = document.querySelector(".popup_is-opened");
-        closePopup(popupIsOpened);
-    }
-};
+// const closeByEscape = function(event) {
+//     if (event.key === "Escape") {
+//         const popupIsOpened = document.querySelector(".popup_is-opened");
+//         closePopup(popupIsOpened);
+//     }
+// };
 
 const handleFormEditSubmit = function(evt) {
     evt.preventDefault();
