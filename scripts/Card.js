@@ -22,8 +22,8 @@ export class Card {
         this._likeButton.addEventListener("click", this._handleLikeIcon);
         this._deleteButton.addEventListener("click", this._deleteCard);
         this._placeImageElement.addEventListener("click", () => this._handleImageClick(this._name, this._link));
-
     }
+
     _getCardElement() {
         this._placeCard = this._templateSelector
             .querySelector(".place")
