@@ -1,3 +1,4 @@
+import './pages/index.css'
 import {
     initialCards,
     popupEditElement,
@@ -15,13 +16,13 @@ import {
     listCards,
     editProfileValidator,
     addCardValidator
-} from '../../scripts/Consts.js'
+} from './Consts.js'
 
-import { Card } from '../../scripts/Card.js'
-import { Section } from '../../scripts/Section.js'
-import { PopupWithForm } from '../../scripts/PopupWithForm.js'
-import { PopupWithImage } from '../../scripts/PopupWithImage.js'
-import { UserInfo } from '../../scripts/Userinfo.js'
+import { Card } from './Card.js'
+import { Section } from './Section.js'
+import { PopupWithForm } from './PopupWithForm.js'
+import { PopupWithImage } from './PopupWithImage.js'
+import { UserInfo } from './Userinfo.js'
 
 editProfileValidator.enableValidation();
 addCardValidator.enableValidation();
