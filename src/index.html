@@ -45,11 +45,11 @@
                 </button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="popup-edit-form" class="popup__form-container popup__form-container_type_edit" novalidate>
-                    <input type="text" name="Name" id="profile-name" class="popup__edit-form popup__edit-form_type_name" placeholder="Введите имя" minlength="2" maxlength="30" required>
+                    <input type="text" name="name" id="profile-name" class="popup__edit-form popup__edit-form_type_name" placeholder="Введите имя" minlength="2" maxlength="30" required>
 
                     <span class="popup__text-error" id="profile-name-error"></span>
 
-                    <input type="text" name="About" id="about" class="popup__edit-form popup__edit-form_type_about" placeholder="Введите описание" minlength="2" maxlength="200" required>
+                    <input type="text" name="about" id="about" class="popup__edit-form popup__edit-form_type_about" placeholder="Введите описание" minlength="2" maxlength="200" required>
                     <span class="popup__text-error" id="about-error"></span>
                     <button type="submit" class="popup__submit popup__submit_type_save">Сохранить</button>
                 </form>
@@ -61,9 +61,9 @@
                 </button>
                 <h2 class="popup__title">Новое место</h2>
                 <form name="popup-edit-form" class="popup__form-container popup__form-container_type_add" novalidate>
-                    <input type="text" name="Name" id="card-name" placeholder="Название" class="popup__edit-form popup__edit-form_type_card-name" minlength="2" maxlength="30" required>
+                    <input type="text" name="name" id="card-name" placeholder="Название" class="popup__edit-form popup__edit-form_type_card-name" minlength="2" maxlength="30" required>
                     <span class="popup__text-error" id="card-name-error"></span>
-                    <input type="url" name="Link" id="link" placeholder="Ссылка на картинку" class="popup__edit-form popup__edit-form_type_link" minlength="6" maxlength="200" required>
+                    <input type="url" name="link" id="link" placeholder="Ссылка на картинку" class="popup__edit-form popup__edit-form_type_link" minlength="6" maxlength="200" required>
                     <span class="popup__text-error" id="link-error"></span>
                     <button type="submit" class="popup__submit popup__submit_type_create">Создать</button>
                 </form>
@@ -90,7 +90,7 @@
                 <button type="button" class="place__delete-button"></button>
             </li>
         </template>
-        <!-- <script type="module" src="./scripts/index.js" defer></script> -->
+        <!-- <script type="module" src="./pages/index.js" defer></script> -->
     </div>
 </body>
 

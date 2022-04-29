@@ -30,13 +30,13 @@ export class FormValidator {
 
     _toggleButtonState() {
         if (this._hasInvalidInput()) {
-            this.disableSubmitButton(this._buttonElement);
+            this.disableSubmitButton();
         } else {
-            this._enableSubmitButton(this._buttonElement);
+            this._enableSubmitButton();
         }
     }
 
-    _openErrorMessage(inputElement, errorMessage) {
+    _showErrorMessage(inputElement, errorMessage) {
         const { errorClass, errorClassActive } = this._settings;
 
         const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
@@ -57,7 +57,7 @@ export class FormValidator {
 
     _checkValidity(inputElement) {
         if (!inputElement.validity.valid) {
-            this._openErrorMessage(inputElement, inputElement.validationMessage);
+            this._showErrorMessage(inputElement, inputElement.validationMessage);
         } else {
             this._hideErrorMessage(inputElement);
         };

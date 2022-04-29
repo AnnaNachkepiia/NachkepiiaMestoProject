@@ -4,11 +4,13 @@ const path = require('path'); // подключаем path к конфигу в�
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: { main: './src/index.js' },
+    entry: { main: './src/pages/index.js' },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js'
     },
+    mode: 'production',
+
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'

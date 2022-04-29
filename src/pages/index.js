@@ -1,4 +1,4 @@
-import './pages/index.css'
+import './index.css'
 import {
     initialCards,
     popupEditElement,
@@ -6,23 +6,25 @@ import {
     popupImgElement,
     popupOpenAddButttonElement,
     popupOpenButtonElement,
+    popupFormElement,
     popupAddFormElement,
     nameInput,
     jobInput,
-    cardNameInput,
-    cardLinkInput,
     profileTitle,
     profileSubtitle,
     listCards,
-    editProfileValidator,
-    addCardValidator
-} from './Consts.js'
+    formObj,
+} from '../utils/Consts.js'
+import { FormValidator } from "../components/FormValidator.js";
+import { Card } from '../components/Card.js'
+import { Section } from '../components/Section.js'
+import { PopupWithForm } from '../components/PopupWithForm.js'
+import { PopupWithImage } from '../components/PopupWithImage.js'
+import { UserInfo } from '../components/Userinfo.js'
 
-import { Card } from './Card.js'
-import { Section } from './Section.js'
-import { PopupWithForm } from './PopupWithForm.js'
-import { PopupWithImage } from './PopupWithImage.js'
-import { UserInfo } from './Userinfo.js'
+
+const editProfileValidator = new FormValidator(formObj, popupFormElement);
+const addCardValidator = new FormValidator(formObj, popupAddFormElement);
 
 editProfileValidator.enableValidation();
 addCardValidator.enableValidation();
@@ -39,7 +41,7 @@ const profileInfo = new UserInfo({
 const popupEdit = new PopupWithForm(
     popupEditElement, {
         handleFormSubmit: (data) => {
-            profileInfo.setUserInfo({ data });
+            profileInfo.setUserInfo(data);
         }
     })
 popupEdit.setEventListeners();
@@ -50,9 +52,15 @@ const openPopupEdit = () => {
     const userInfo = profileInfo.getUserInfo();
     nameInput.value = userInfo.name;
     jobInput.value = userInfo.about;
-
     popupEdit.openPopup();
 }
+
+// const openPopupEdit = () => {
+//     const userInfo = profileInfo.getUserInfo();
+//     userInfo.setInputValues()
+
+//     popupEdit.openPopup();
+// }
 
 popupOpenButtonElement.addEventListener("click", openPopupEdit);
 
@@ -61,8 +69,7 @@ popupOpenButtonElement.addEventListener("click", openPopupEdit);
 const newCardPopup = new PopupWithForm(
     popupAddElement, {
         handleFormSubmit: (data) => {
-            data.name = cardNameInput.value;
-            data.link = cardLinkInput.value;
+
             cardSection.addItem(renderCard(data));
         }
     })
@@ -71,7 +78,6 @@ newCardPopup.setEventListeners();
 // Функция открытия попапа добавления карточки
 
 function openPopupAdd() {
-    popupAddFormElement.reset();
     addCardValidator.disableSubmitButton();
     newCardPopup.openPopup();
 }
@@ -83,8 +89,9 @@ const picturePopup = new PopupWithImage(popupImgElement);
 
 const handleImageClick = (name, link) => {
     picturePopup.openPopup(name, link);
-    picturePopup.setEventListeners()
+
 };
+picturePopup.setEventListeners()
 
 // Функция добавления новой карточки
 
