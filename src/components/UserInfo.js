@@ -14,5 +14,4 @@ export class UserInfo {
         this._profileName.textContent = data.name;
         this._profileInfo.textContent = data.about;
     }
-
 }

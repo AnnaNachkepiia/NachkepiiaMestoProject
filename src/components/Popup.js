@@ -1,7 +1,7 @@
 export class Popup {
     constructor(popup) {
         this._popup = popup;
-        this._closeButton = this._popup.querySelector('.popup__close');
+        this._closeButton = this._popup.querySelector(".popup__close");
         this._closeByEscape = this._closeByEscape.bind(this);
         this._closePopupOverlay = this._closePopupOverlay.bind(this);
         this.closePopup = this.closePopup.bind(this);
@@ -11,12 +11,12 @@ export class Popup {
         if (evt.key === "Escape") {
             this.closePopup();
         }
-    };
+    }
 
     _closePopupOverlay(evt) {
         if (evt.target.classList.contains("popup_is-opened")) {
             this.closePopup();
-        };
+        }
     }
 
     openPopup() {
@@ -30,7 +30,7 @@ export class Popup {
     }
 
     setEventListeners() {
-        this._closeButton.addEventListener('click', this.closePopup);
-        this._popup.addEventListener('mousedown', this._closePopupOverlay);
+        this._closeButton.addEventListener("click", this.closePopup);
+        this._popup.addEventListener("mousedown", this._closePopupOverlay);
     }
 }
