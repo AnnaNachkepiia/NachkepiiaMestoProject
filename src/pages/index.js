@@ -7,6 +7,7 @@ import {
     popupUpdateAvatarElement,
     popupOpenAddButttonElement,
     popupOpenButtonElement,
+    popupUpdateButtonElement,
     popupFormElement,
     popupAddFormElement,
     nameInput,
@@ -22,12 +23,25 @@ import { Section } from "../components/Section.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/Userinfo.js";
+import { Api } from "../components/API";
 
 const editProfileValidator = new FormValidator(formObj, popupFormElement);
 const addCardValidator = new FormValidator(formObj, popupAddFormElement);
 
 editProfileValidator.enableValidation();
 addCardValidator.enableValidation();
+
+// Запрос на сервер
+
+const api = new Api({
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-40/',
+    headers: {
+        authorization: 'a21500ca-3216-4c89-8f3a-5037d5204e6f',
+        'Content-Type': 'application/json'
+    }
+});
+
+
 
 // Информация профиля на странице
 
@@ -78,6 +92,16 @@ popupOpenAddButttonElement.addEventListener("click", openPopupAdd);
 // const updateAvatarPopup = new PopupWithForm(popupUpdateAvatarElement, {
 //         handleFormSubmit: (data)})
 
+// Открытие попапа редактирование аватара
+
+// function openPopupUpdate() {
+//     popupUpdateAvatarElement.openPopup();
+// };
+
+// popupUpdateButtonElement.addEventListener("click", openPopupUpdate);
+
+
+
 // Открытие попапа с картинкой
 
 const picturePopup = new PopupWithImage(popupImgElement);
@@ -98,13 +122,27 @@ const renderCard = (data) => {
 
 // Рендер начальных карточек
 
-const cardSection = new Section({
-        items: initialCards,
-        renderer: (data) => {
-            const cardItem = renderCard(data);
-            cardSection.addItem(cardItem);
-        },
-    },
-    listCards
-);
-cardSection.renderElements();
+// const cardSection = new Section({
+//         items: data,
+//         renderer: (item) => {
+//             cardSection.addItem(renderCard(item));
+//         },
+//     },
+//     listCards
+// );
+// cardSection.renderElements();
+
+
+api
+    .getInitialCards()
+    .then((data) => {
+        const cardSection = new Section({
+                items: data,
+                renderer: (item) => {
+                    cardSection.addItem(renderCard(item));
+                },
+            },
+            listCards
+        );
+        cardSection.renderElements();
+    });

@@ -32,6 +32,7 @@ export const popupUpdateAvatarElement = document.querySelector(".popup_type_upda
 export const popupOpenAddButttonElement = document.querySelector(
     ".profile__add-button"
 );
+export const popupUpdateButtonElement = document.querySelector(".popup__close_update-avatar");
 export const popupEditCloseButtonElement =
     document.querySelector(".popup__close_edit");
 export const popupAddCloseButtonElement =

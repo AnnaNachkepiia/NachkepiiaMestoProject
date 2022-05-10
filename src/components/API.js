@@ -1,19 +1,40 @@
 export class Api {
     constructor(options) {
-        // тело конструктора
+        this._baseUrl = options.baseUrl;
+        this._headers = options.headers;
     }
 
     getInitialCards() {
-        // ...
+        return fetch(`${this._baseUrl}cards`, {
+                headers: {
+                    authorization: 'a21500ca-3216-4c89-8f3a-5037d5204e6f'
+                }
+            })
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                }
+                // если ошибка, отклоняем промис
+                return Promise.reject(`Ошибка: ${res.status}`);
+            });
+    };
+
+    addNewCard(card) {
+        return fetch(`${this._baseUrl}cards`, {
+                method: 'POST',
+                headers: {
+                    authorization: 'a21500ca-3216-4c89-8f3a-5037d5204e6f'
+                },
+                body: JSON.stringify(card)
+            })
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                }
+                // если ошибка, отклоняем промис
+                return Promise.reject(`Ошибка: ${res.status}`);
+            });
     }
 
     // другие методы работы с API
 }
-
-const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-42',
-    headers: {
-        authorization: 'c56e30dc-2883-4270-a59e-b2f7bae969c6',
-        'Content-Type': 'application/json'
-    }
-});
