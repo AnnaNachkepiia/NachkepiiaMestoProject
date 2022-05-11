@@ -5,9 +5,6 @@ export class Section {
         this._cardsContainer = container;
     }
 
-    // renderer() {
-
-    // }
 
     addItem(element) {
         this._cardsContainer.prepend(element);

@@ -27,12 +27,18 @@ export const initialCards = [{
 export const popupEditElement = document.querySelector(".popup_type_edit");
 export const popupAddElement = document.querySelector(".popup_type_add-card");
 export const popupImgElement = document.querySelector(".popup_type_open-image");
-export const popupConfirmElement = document.querySelector(".popup_type_confirm");
-export const popupUpdateAvatarElement = document.querySelector(".popup_type_update-avatar");
+export const popupConfirmElement = document.querySelector(
+    ".popup_type_confirm"
+);
+export const popupUpdateAvatarElement = document.querySelector(
+    ".popup_type_update-avatar"
+);
 export const popupOpenAddButttonElement = document.querySelector(
     ".profile__add-button"
 );
-export const popupUpdateButtonElement = document.querySelector(".popup__close_update-avatar");
+export const popupUpdateButtonElement = document.querySelector(
+    ".popup__close_update-avatar"
+);
 export const popupEditCloseButtonElement =
     document.querySelector(".popup__close_edit");
 export const popupAddCloseButtonElement =
@@ -69,6 +75,7 @@ export const cardLinkInput = popupAddElement.querySelector(
 );
 export const profileTitle = document.querySelector(".profile__title");
 export const profileSubtitle = document.querySelector(".profile__subtitle");
+export const profileAvatar = document.querySelector(".profile__avatar");
 export const popupPicture = document.querySelector(".popup__picture");
 export const popupOpenPicture = document.querySelector(".popup__fulled-img");
 export const popupOpenPictureCapture = popupPicture.querySelector(

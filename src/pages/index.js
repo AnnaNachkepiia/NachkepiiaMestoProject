@@ -16,6 +16,7 @@ import {
     profileSubtitle,
     listCards,
     formObj,
+    profileAvatar,
 } from "../utils/Consts.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Card } from "../components/Card.js";
@@ -45,10 +46,17 @@ const api = new Api({
 
 // Информация профиля на странице
 
+
 const profileInfo = new UserInfo({
     userNameSelector: profileTitle,
     userInfoSelector: profileSubtitle,
+    userAvatarSelector: profileAvatar,
 });
+
+// const profileInfo = new UserInfo({
+//     userNameSelector: profileTitle,
+//     userInfoSelector: profileSubtitle,
+// });
 
 // Попап формы редактирования профиля
 
@@ -89,16 +97,18 @@ popupOpenAddButttonElement.addEventListener("click", openPopupAdd);
 
 // Попап редактирования аватара
 
-// const updateAvatarPopup = new PopupWithForm(popupUpdateAvatarElement, {
-//         handleFormSubmit: (data)})
+const updateAvatarPopup = new PopupWithForm(popupUpdateAvatarElement, {
+    handleFormSubmit: () => {}
+})
+updateAvatarPopup.setEventListeners();
 
 // Открытие попапа редактирование аватара
 
-// function openPopupUpdate() {
-//     popupUpdateAvatarElement.openPopup();
-// };
+function openPopupUpdate() {
+    popupUpdateAvatarElement.openPopup();
+};
 
-// popupUpdateButtonElement.addEventListener("click", openPopupUpdate);
+popupUpdateButtonElement.addEventListener("click", openPopupUpdate);
 
 
 
@@ -122,17 +132,6 @@ const renderCard = (data) => {
 
 // Рендер начальных карточек
 
-// const cardSection = new Section({
-//         items: data,
-//         renderer: (item) => {
-//             cardSection.addItem(renderCard(item));
-//         },
-//     },
-//     listCards
-// );
-// cardSection.renderElements();
-
-
 api
     .getInitialCards()
     .then((data) => {
@@ -145,4 +144,13 @@ api
             listCards
         );
         cardSection.renderElements();
-    });
+    })
+    .catch((err) => alert(err))
+
+api
+    .getUserData()
+    .then((data) => {
+        profileInfo.setUserInfo(data);
+        profileInfo.setUserAvatar(data.avatar)
+    })
+    .catch((err) => alert(err))
