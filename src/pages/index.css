@@ -45,6 +45,7 @@
 @import url(../blocks/popup/__form-container/_type/popup__form-container_type_edit.css);
 @import url(../blocks/popup/__form-container/_type/popup__form-container_type_add.css);
 @import url(../blocks/popup/__form-container/_type/popup__form-container_type_update-avatar.css);
+@import url(../blocks/popup/__form-container/_type/popup__form-container_type_confirm.css);
 @import url(../blocks/popup/__edit-form/popup__edit-form.css);
 @import url(../blocks/popup/__edit-form/_type/popup__edit-form_type_name.css);
 @import url(../blocks/popup/__edit-form/_type/popup__edit-form_type_about.css);

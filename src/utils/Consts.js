@@ -61,6 +61,10 @@ export const popupFormElement = popupEditElement.querySelector(
 export const popupAddFormElement = popupAddElement.querySelector(
     ".popup__form-container_type_add"
 );
+export const popupEditAvatarFormElement =
+    popupUpdateAvatarElement.querySelector(
+        ".popup__form-container_type_update-avatar"
+    );
 export const nameInput = popupFormElement.querySelector(
     ".popup__edit-form_type_name"
 );

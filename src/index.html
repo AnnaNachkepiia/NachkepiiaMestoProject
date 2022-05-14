@@ -20,7 +20,7 @@
                 <div class="profile__avatar_container">
                     <img class="profile__avatar-edit" src="<%=require('.//images/VectorEdit.svg')%>" alt="Редактировать профиль" />
 
-                    <img class="profile__avatar" src="<%=require('.//images/Kusto.jpg')%>" alt="Аватар" />
+                    <img class="profile__avatar" src="" alt="Аватар" />
                 </div>
                 <div class="profile__info">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -84,11 +84,13 @@
             <div class="popup__container">
                 <button type="button" class="popup__close popup__close_confirm"></button>
                 <h2 class="popup__title">Вы уверены?</h2>
-                <div class="popup__submit-container">
-                    <button type="submit" class="popup__submit popup__submit_type_confirm">
+                <form name="popup-edit-form" class="popup__form-container popup__form-container_type_confirm" novalidate>
+                    <div class="popup__submit-container">
+                        <button type="submit" class="popup__submit popup__submit_type_confirm">
               Да
             </button>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -97,7 +99,7 @@
                 <button type="button" class="popup__close popup__close_update-avatar"></button>
                 <h2 class="popup__title">Обновить аватар</h2>
                 <form name="popup-edit-form" class="popup__form-container popup__form-container_type_update-avatar" novalidate>
-                    <input type="url" name="link" id="link" placeholder="Ссылка на картинку" class="popup__edit-form popup__edit-form_type_link-avatar" minlength="6" maxlength="200" required />
+                    <input type="url" name="link" id="avatar-link" placeholder="Ссылка на картинку" class="popup__edit-form popup__edit-form_type_link-avatar" minlength="6" maxlength="200" required />
                     <span class="popup__text-error" id="avatar-link-error"></span>
                     <button type="submit" class="popup__submit popup__submit_type_update">
               Сохранить
