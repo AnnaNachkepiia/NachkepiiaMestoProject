@@ -1,6 +1,7 @@
 export class Card {
     constructor(
-        templateSelector, { userId, data, handleImageClick, handleCardDelete }, api
+        templateSelector, { userId, data, handleImageClick, handleCardDelete },
+        api
     ) {
         this._name = data.name;
         this._link = data.link;
@@ -16,7 +17,6 @@ export class Card {
         this.deleteYourCard = this.deleteYourCard.bind(this);
     }
 
-
     _addLikeIcon = () => {
         this._likeButton.classList.add("place__like-button_active");
     };
@@ -28,12 +28,10 @@ export class Card {
     deleteYourCard() {
         this._placeCard.remove();
         this._placeCard = null;
-    };
+    }
 
     _setEventListeners() {
-        this._likeButton.addEventListener("click", () =>
-            this._countLikes()
-        );
+        this._likeButton.addEventListener("click", () => this._countLikes());
         this._deleteButton.addEventListener("click", () =>
             this._handleCardDelete()
         );
@@ -47,15 +45,12 @@ export class Card {
         return this._placeCard;
     }
 
-    // cardIsLiked = () => {
-    //     const cardLiked = this._likes.some((user) => user._id === this._userId);
-    //     return cardLiked;
-    // };
-
     cardIsLiked = () => {
-        const cardLiked = this._likeButton.classList.contains("place__like-button_active");
+        const cardLiked = this._likeButton.classList.contains(
+            "place__like-button_active"
+        );
         return cardLiked;
-    }
+    };
 
     // countLikes = (likes) => {
     //     if (!this.cardIsLiked()) {
@@ -73,7 +68,7 @@ export class Card {
                 .then((data) => {
                     this._likeNumber.textContent = data.likes.length;
                 })
-                .catch((err) => console.log(err))
+                .catch((err) => console.log(err));
             this._addLikeIcon();
         } else {
             this._api
@@ -81,15 +76,14 @@ export class Card {
                 .then((data) => {
                     this._likeNumber.textContent = data.likes.length;
                 })
-                .catch((err) => console.log(err))
+                .catch((err) => console.log(err));
             this._removeLikeIcon();
         }
     }
 
     _addDeleteButton() {
         if (this._ownerId !== this._userId) {
-            this._deleteButton.style.display =
-                "none";
+            this._deleteButton.style.display = "none";
         }
     }
 
@@ -111,10 +105,6 @@ export class Card {
         this._addDeleteButton();
 
         this.cardIsLiked();
-
-        // if (this._likes.map((item) => item._id).includes(this._userId)) {
-        //     this._likeButton.classList.add("place__like-button_active");
-        // }
 
         this._setEventListeners();
 
