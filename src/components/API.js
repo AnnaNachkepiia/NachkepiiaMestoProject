@@ -64,7 +64,7 @@ export class Api {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                avatar: avatar['link'],
+                avatar: avatar['link']
             }),
         }).then(this._checkRes);
     }
@@ -87,6 +87,6 @@ export class Api {
 
     // Отрисовка всех данных на начальной странице
     getInitialData() {
-        return Promise.all([getInitialCards(), getUserData()]);
+        return Promise.all([this.getUserData(), this.getInitialCards()]);
     }
 }

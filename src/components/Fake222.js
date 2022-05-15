@@ -16,18 +16,13 @@ export class Card {
 
     }
 
-    _getCardElement() {
-        this._placeCard = this._template.querySelector(".place").cloneNode(true);
-        return this._placeCard;
-    }
-
     userLike() {
         const liked = this._likes.some((user) => user._id === this._userId);
         return liked;
     }
 
-    handleLike(like) {
-        this._likes = like;
+    handleLike(countLikes) {
+        this._likes = countLikes;
 
         if (this.userLike()) {
             this._likeButton.classList.add("place__like-button_active");
@@ -38,18 +33,18 @@ export class Card {
         this._likeNumber.textContent = this._likes.length;
     }
 
-    deleteYourCard() {
-        this._placeCard.remove();
-        this._placeCard = null;
+    handleDelete() {
+        this._cardElement.remove();
+        this._cardElement = null;
     }
 
-    _setEventListeners() {
+    _setEvtListener() {
         this._likeButton.addEventListener("click", () =>
             this._handleLikeClick(this._id)
         );
 
         this._deleteButton.addEventListener("click", () =>
-            this._handleCardDelete(this._id)
+            this._handleCardDelete()
         );
 
         this._placeImageElement.addEventListener("click", () =>
@@ -57,17 +52,22 @@ export class Card {
         );
     }
 
-    _setDataCard() {
+    _fillDataCard() {
         this._placeTitle.textContent = this._name;
         this._placeImageElement.src = this._link;
         this._placeImageElement.alt = this._name;
         this.handleLike(this._likes);
     }
 
-    _addDeleteButton() {
+    _setDeleteButton() {
         if (this._ownerId !== this._userId) {
             this._deleteButton.style.display = "none";
         }
+    }
+
+    _getCardElement() {
+        this._placeCard = this._template.querySelector(".place").cloneNode(true);
+        return this._placeCard;
     }
 
     generateCard() {
@@ -80,11 +80,17 @@ export class Card {
         this._deleteButton = this._placeCard.querySelector(".place__delete-button");
         this._likeNumber = this._placeCard.querySelector(".place__like-counter");
 
-        this._addDeleteButton();
-        this._setDataCard();
-        this.handleLike(this._likes);
-        this._setEventListeners();
+        // this._imageElement = this._cardElement.querySelector(".elements__item-image");
+        // this._titleElement = this._cardElement.querySelector(".elements__item-title");
+        // this._likeElement = this._cardElement.querySelector(".elements__item-like");
+        // this._likeCountElement = this._cardElement.querySelector(".elements__like-number");
+        // this._deleteElement = this._cardElement.querySelector(".elements__button-delete");
 
-        return this._placeCard;
+        this._setDeleteButton();
+        this._fillDataCard();
+        this.handleLike(this._likes);
+        this._setEvtListener();
+
+        return this._cardElement;
     }
 }
