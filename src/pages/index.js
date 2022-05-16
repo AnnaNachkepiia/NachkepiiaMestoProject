@@ -68,12 +68,13 @@ const popupEdit = new PopupWithForm(popupEditElement, {
             .editUserData(data)
             .then((data) => {
                 profileInfo.setUserInfo(data);
+                popupEdit.closePopup();
             })
             .catch((err) => console.log(err))
             .finally(() => {
                 popupEdit.showLoadingMessage(false);
             });
-        popupEdit.closePopup();
+
     },
 });
 popupEdit.setEventListeners();
@@ -113,12 +114,13 @@ const newCardPopup = new PopupWithForm(popupAddElement, {
             .then((data) => {
                 cardSection.addItem(
                     renderCard(data));
+                newCardPopup.closePopup();
             })
             .catch((err) => console.log(err))
             .finally(() => {
                 newCardPopup.showLoadingMessage(false);
             });
-        newCardPopup.closePopup();
+
     },
 });
 newCardPopup.setEventListeners();
@@ -140,12 +142,13 @@ const updateAvatarPopup = new PopupWithForm(popupUpdateAvatarElement, {
             .editUserAvatar(item)
             .then((res) => {
                 profileInfo.setUserInfo(res);
+                updateAvatarPopup.closePopup()
             })
             .catch((err) => console.log(err))
             .finally(() => {
                 updateAvatarPopup.showLoadingMessage(false);
             });
-        updateAvatarPopup.closePopup()
+
     },
 });
 updateAvatarPopup.setEventListeners();
@@ -194,10 +197,11 @@ const renderCard = (data) => {
                 api
                     .deleteCard(id)
                     .then(() => {
-                        placeCard.deleteYourCard()
+                        placeCard.deleteYourCard();
+                        popupConfirm.closePopup();
                     })
                     .catch((err) => console.log(err))
-                popupConfirm.closePopup();
+
             });
 
 
